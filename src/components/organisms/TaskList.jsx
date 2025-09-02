@@ -7,14 +7,6 @@ import ApperIcon from "@/components/ApperIcon";
 import tasksService from "@/services/api/tasksService";
 
 const TaskList = ({ tasks, onTasksChange, loading }) => {
-  const handleStatusChange = async (taskId, newStatus) => {
-    try {
-      await tasksService.update(taskId, { status: newStatus });
-      onTasksChange();
-    } catch (error) {
-      console.error("Error updating task status:", error);
-    }
-  };
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [editingTask, setEditingTask] = useState(null);
   const [deletingTaskId, setDeletingTaskId] = useState(null);
@@ -129,11 +121,10 @@ await tasksService.update(editingTask.Id, formData);
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {tasks.map((task) => (
             <div key={task.Id} className="relative">
-<TaskCard
+              <TaskCard
                 task={task}
                 onEdit={handleEditTask}
                 onDelete={handleDeleteTask}
-                onStatusChange={handleStatusChange}
               />
               {deletingTaskId === task.Id && (
                 <div className="absolute inset-0 bg-white/80 backdrop-blur-sm rounded-lg flex items-center justify-center">

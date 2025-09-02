@@ -4,26 +4,7 @@ import Badge from "@/components/atoms/Badge";
 import Button from "@/components/atoms/Button";
 import { Card, CardContent, CardHeader } from "@/components/atoms/Card";
 
-const TaskCard = ({ task, onEdit, onDelete, onStatusChange }) => {
-  const handleStatusClick = () => {
-    if (!onStatusChange) return;
-    
-    const statusOrder = ["To Do", "In Progress", "Done"];
-    const currentIndex = statusOrder.indexOf(task.status);
-    const nextIndex = (currentIndex + 1) % statusOrder.length;
-    const nextStatus = statusOrder[nextIndex];
-    
-    onStatusChange(task.Id, nextStatus);
-  };
-
-  const handleCheckboxChange = (e) => {
-    if (!onStatusChange) return;
-    
-    const newStatus = e.target.checked ? "Done" : "To Do";
-    onStatusChange(task.Id, newStatus);
-  };
-
-  const isCompleted = task.status === "Done";
+const TaskCard = ({ task, onEdit, onDelete }) => {
   const getTaskTypeColor = (type) => {
     switch (type) {
       case "React": return "react";
@@ -56,30 +37,16 @@ const TaskCard = ({ task, onEdit, onDelete, onStatusChange }) => {
   return (
     <Card className="hover:shadow-xl transition-all duration-300 transform hover:scale-[1.02]">
       <CardHeader className="pb-3">
-<div className="flex items-start justify-between">
-          <div className="flex items-center gap-3 flex-1">
-            <input
-              type="checkbox"
-              checked={isCompleted}
-              onChange={handleCheckboxChange}
-              className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 focus:ring-2"
-            />
-            <div className="flex-1">
-              <h3 className={`font-semibold mb-2 ${isCompleted ? 'text-slate-500 line-through' : 'text-slate-800'}`}>
-                {task.title}
-              </h3>
-              <div className="flex items-center gap-2">
-                <Badge variant={getTaskTypeColor(task.taskType)}>
-                  {task.taskType}
-                </Badge>
-                <Badge 
-                  variant={getStatusVariant(task.status)}
-                  className="cursor-pointer hover:opacity-80 transition-opacity"
-                  onClick={handleStatusClick}
-                >
-                  {task.status}
-                </Badge>
-              </div>
+        <div className="flex items-start justify-between">
+          <div className="flex-1">
+<h3 className="font-semibold text-slate-800 mb-2">{task.title}</h3>
+            <div className="flex items-center gap-2">
+<Badge variant={getTaskTypeColor(task.taskType)}>
+                {task.taskType}
+              </Badge>
+              <Badge variant={getStatusVariant(task.status)}>
+                {task.status}
+              </Badge>
             </div>
           </div>
           <div className="flex items-center gap-1 ml-2">
@@ -103,14 +70,12 @@ const TaskCard = ({ task, onEdit, onDelete, onStatusChange }) => {
         </div>
       </CardHeader>
       <CardContent className="pt-0">
-<p className={`text-sm mb-4 line-clamp-2 ${isCompleted ? 'text-slate-400 line-through' : 'text-slate-600'}`}>
-          {task.description}
-        </p>
+<p className="text-slate-600 text-sm mb-4 line-clamp-2">{task.description}</p>
         
         <div className="space-y-2">
           <div className="flex items-center text-sm text-slate-600">
             <ApperIcon name="User" className="h-4 w-4 mr-2" />
-<span className={isCompleted ? 'text-slate-400' : ''}>{task.assignee}</span>
+<span>{task.assignee}</span>
           </div>
           
           <div className={`flex items-center text-sm ${getDueDateColor(task.dueDate)}`}>
