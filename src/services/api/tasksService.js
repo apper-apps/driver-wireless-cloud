@@ -33,8 +33,8 @@ class TasksService {
           { field: { Name: "created_at_c" } },
           { field: { Name: "updated_at_c" } }
         ],
-        orderBy: [
-          { fieldName: "Id", sorttype: "DESC" }
+orderBy: [
+          { fieldName: "CreatedOn", sorttype: "ASC" }
         ]
       };
 
