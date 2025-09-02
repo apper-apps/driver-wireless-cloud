@@ -61,7 +61,7 @@ const dueDate = new Date(task.dueDate);
 
   const getRecentActivity = () => {
     return tasks
-      .sort((a, b) => new Date(b.updatedAt) - new Date(a.updatedAt))
+.sort((a, b) => new Date(b.updatedAt) - new Date(a.updatedAt))
       .slice(0, 5);
   };
 
@@ -219,11 +219,11 @@ const dueDate = new Date(task.dueDate);
                     <div className="flex-1 min-w-0">
 <p className="font-medium text-slate-800 truncate">{task.title}</p>
                       <div className="flex items-center gap-2 mt-1">
-                        <Badge variant={getTaskTypeColor(task.taskType)} className="text-xs">
+<Badge variant={getTaskTypeColor(task.taskType)} className="text-xs">
                           {task.taskType}
                         </Badge>
                         <span className="text-xs text-slate-500">
-                          Due {format(new Date(task.dueDate), "MMM dd")}
+Due {format(new Date(task.dueDate), "MMM dd")}
                         </span>
                       </div>
                     </div>
@@ -261,10 +261,10 @@ const dueDate = new Date(task.dueDate);
                     <div className="flex-1 min-w-0">
 <p className="font-medium text-slate-800 truncate">{task.title}</p>
                       <div className="flex items-center gap-2 mt-1">
-                        <Badge variant={getTaskTypeColor(task.taskType)} className="text-xs">
+<Badge variant={getTaskTypeColor(task.taskType)} className="text-xs">
                           {task.taskType}
                         </Badge>
-                        <span className="text-xs text-slate-500">
+<span className="text-xs text-slate-500">
                           Updated {format(new Date(task.updatedAt), "MMM dd, h:mm a")}
                         </span>
                       </div>
