@@ -1,21 +1,24 @@
-import { useState, useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useSearchParams } from "react-router-dom";
 import tasksService from "@/services/api/tasksService";
 import TaskList from "@/components/organisms/TaskList";
+import TaskModal from "@/components/organisms/TaskModal";
 import FilterBar from "@/components/molecules/FilterBar";
 import SearchBar from "@/components/molecules/SearchBar";
-import Loading from "@/components/ui/Loading";
 import Error from "@/components/ui/Error";
 import Empty from "@/components/ui/Empty";
+import Loading from "@/components/ui/Loading";
 
 const Tasks = () => {
-  const [tasks, setTasks] = useState([]);
+const [tasks, setTasks] = useState([]);
   const [filteredTasks, setFilteredTasks] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
   const [searchTerm, setSearchTerm] = useState("");
   const [activeFilter, setActiveFilter] = useState("all");
   const [searchParams, setSearchParams] = useSearchParams();
+  const [showModal, setShowModal] = useState(false);
+  const [editingTask, setEditingTask] = useState(null);
 
   useEffect(() => {
     // Check for filter parameter in URL
@@ -82,7 +85,21 @@ task.title.toLowerCase().includes(searchLower) ||
 
   if (loading) return <Loading message="Loading tasks..." />;
   if (error) return <Error message={error} onRetry={loadTasks} />;
+const handleCreateTask = () => {
+    setEditingTask(null);
+    setShowModal(true);
+  };
 
+  const handleCloseModal = () => {
+    setShowModal(false);
+    setEditingTask(null);
+  };
+
+  const handleSaveTask = async () => {
+    await loadTasks();
+    setShowModal(false);
+    setEditingTask(null);
+  };
   return (
     <div className="space-y-6">
       {/* Header */}
@@ -113,10 +130,11 @@ task.title.toLowerCase().includes(searchLower) ||
 
       {/* Task List */}
       {tasks.length === 0 ? (
-        <Empty
+<Empty
           title="No tasks yet"
           description="Create your first task to start managing your business operations effectively."
           actionLabel="Create Task"
+          onAction={handleCreateTask}
           icon="CheckSquare"
         />
       ) : filteredTasks.length === 0 ? (
@@ -136,12 +154,19 @@ task.title.toLowerCase().includes(searchLower) ||
           }}
         />
       ) : (
-        <TaskList
+<TaskList
           tasks={filteredTasks}
           onTasksChange={loadTasks}
           loading={false}
         />
       )}
+      
+      <TaskModal
+        isOpen={showModal}
+        onClose={handleCloseModal}
+        task={editingTask}
+        onSave={handleSaveTask}
+/>
     </div>
   );
 };
