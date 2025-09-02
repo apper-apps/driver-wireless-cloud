@@ -9,7 +9,7 @@ const Sidebar = ({ isOpen, onClose, className }) => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const loadNavigation = async () => {
+const loadNavigation = async () => {
       try {
         const data = await navigationService.getAll();
         setNavigationItems(data);

@@ -26,7 +26,7 @@ const TaskList = ({ tasks, onTasksChange, loading }) => {
       return;
     }
 
-    setDeletingTaskId(task.Id);
+setDeletingTaskId(task.Id);
     try {
       await tasksService.delete(task.Id);
       onTasksChange();
@@ -40,7 +40,7 @@ const TaskList = ({ tasks, onTasksChange, loading }) => {
 
   const handleSaveTask = async (formData) => {
     if (editingTask) {
-      await tasksService.update(editingTask.Id, formData);
+await tasksService.update(editingTask.Id, formData);
     } else {
       await tasksService.create(formData);
     }

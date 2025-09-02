@@ -9,7 +9,7 @@ import ApperIcon from "@/components/ApperIcon";
 import { cn } from "@/utils/cn";
 
 const TaskModal = ({ isOpen, onClose, task, onSave }) => {
-  const [formData, setFormData] = useState({
+const [formData, setFormData] = useState({
     title: "",
     description: "",
     taskType: "React",
@@ -23,7 +23,7 @@ const TaskModal = ({ isOpen, onClose, task, onSave }) => {
   useEffect(() => {
     if (task) {
       setFormData({
-        title: task.title || "",
+title: task.title || "",
         description: task.description || "",
         taskType: task.taskType || "React",
         assignee: task.assignee || "",

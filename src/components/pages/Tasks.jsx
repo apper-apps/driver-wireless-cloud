@@ -35,7 +35,7 @@ const Tasks = () => {
     try {
       setLoading(true);
       setError("");
-      const tasksData = await tasksService.getAll();
+const tasksData = await tasksService.getAll();
       setTasks(tasksData);
     } catch (error) {
       setError("Failed to load tasks. Please try again.");
@@ -49,14 +49,14 @@ const Tasks = () => {
 
     // Apply type filter
     if (activeFilter !== "all") {
-      filtered = filtered.filter(task => task.taskType === activeFilter);
+filtered = filtered.filter(task => task.taskType === activeFilter);
     }
 
     // Apply search filter
     if (searchTerm.trim()) {
       const searchLower = searchTerm.toLowerCase();
       filtered = filtered.filter(task =>
-        task.title.toLowerCase().includes(searchLower) ||
+task.title.toLowerCase().includes(searchLower) ||
         task.description.toLowerCase().includes(searchLower) ||
         task.assignee.toLowerCase().includes(searchLower)
       );
