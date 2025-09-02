@@ -16,113 +16,109 @@ class NavigationService {
   }
 
 async getAll() {
-    try {
-      // Return static navigation structure as requested
-      return [
-        {
-          Id: 1,
-          label: "Dashboard",
-          path: "/",
-          icon: "LayoutDashboard",
-          children: []
-        },
-        {
-          Id: 2,
-          label: "Tasks",
-          path: "#",
-          icon: "CheckSquare",
-          children: [
-            {
-              Id: 21,
-              label: "React",
-              path: "/tasks?filter=React",
-              icon: "AlertTriangle",
-              children: []
-            },
-            {
-              Id: 22,
-              label: "Maintain",
-              path: "/tasks?filter=Maintain",
-              icon: "Settings",
-              children: []
-            },
-            {
-              Id: 23,
-              label: "Improve",
-              path: "/tasks?filter=Improve",
-              icon: "TrendingUp",
-              children: []
-            }
-          ]
-        },
-        {
-          Id: 3,
-          label: "Toolbox",
-          path: "#",
-          icon: "Wrench",
-          children: [
-            {
-              Id: 31,
-              label: "Systems",
-              path: "/systems",
-              icon: "Server",
-              children: []
-            },
-            {
-              Id: 32,
-              label: "Processes",
-              path: "/processes",
-              icon: "GitBranch",
-              children: []
-            },
-            {
-              Id: 33,
-              label: "Equipment",
-              path: "/equipment",
-              icon: "Cog",
-              children: []
-            },
-            {
-              Id: 34,
-              label: "Software",
-              path: "/software",
-              icon: "Monitor",
-              children: []
-            },
-            {
-              Id: 35,
-              label: "Team",
-              path: "/team",
-              icon: "Users",
-              children: []
-            },
-            {
-              Id: 36,
-              label: "Key Events",
-              path: "/key-events",
-              icon: "Calendar",
-              children: []
-            },
-            {
-              Id: 37,
-              label: "Ideas",
-              path: "/ideas",
-children: []
-            }
-          ]
-        },
-        {
-          Id: 4,
-          label: "Reports",
-          path: "/reports",
-          icon: "BarChart3",
-children: []
-        }
-      ];
-    } catch (error) {
-      console.error("Error fetching navigation:", error);
-      return [];
-    }
+    // Return static navigation structure as requested
+    return [
+      {
+        Id: 1,
+        label: "Dashboard",
+        path: "/",
+        icon: "LayoutDashboard",
+        children: []
+      },
+      {
+        Id: 2,
+        label: "Tasks",
+        path: "#",
+        icon: "CheckSquare",
+        children: [
+          {
+            Id: 21,
+            label: "React",
+            path: "/tasks?filter=React",
+            icon: "AlertTriangle",
+            children: []
+          },
+          {
+            Id: 22,
+            label: "Maintain",
+            path: "/tasks?filter=Maintain",
+            icon: "Settings",
+            children: []
+          },
+          {
+            Id: 23,
+            label: "Improve",
+            path: "/tasks?filter=Improve",
+            icon: "TrendingUp",
+            children: []
+          }
+        ]
+      },
+      {
+        Id: 3,
+        label: "Toolbox",
+        path: "#",
+        icon: "Wrench",
+        children: [
+          {
+            Id: 31,
+            label: "Systems",
+            path: "/systems",
+            icon: "Server",
+            children: []
+          },
+          {
+            Id: 32,
+            label: "Processes",
+            path: "/processes",
+            icon: "GitBranch",
+            children: []
+          },
+          {
+            Id: 33,
+            label: "Equipment",
+            path: "/equipment",
+            icon: "Cog",
+            children: []
+          },
+          {
+            Id: 34,
+            label: "Software",
+            path: "/software",
+            icon: "Monitor",
+            children: []
+          },
+          {
+            Id: 35,
+            label: "Team",
+            path: "/team",
+            icon: "Users",
+            children: []
+          },
+          {
+            Id: 36,
+            label: "Key Events",
+            path: "/key-events",
+            icon: "Calendar",
+            children: []
+          },
+          {
+            Id: 37,
+            label: "Ideas",
+            path: "/ideas",
+            icon: "Monitor",
+            children: []
+          }
+        ]
+      },
+      {
+        Id: 4,
+        label: "Reports",
+        path: "/reports",
+        icon: "BarChart3",
+        children: []
+      }
+    ];
   }
 
   parseChildren(childrenData) {
