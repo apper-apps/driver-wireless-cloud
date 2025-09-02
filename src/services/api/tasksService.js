@@ -360,4 +360,3 @@ class TasksService {
   }
 }
 export default new TasksService();
-export default new TasksService();
