@@ -116,7 +116,7 @@ children: []
           label: "Reports",
           path: "/reports",
           icon: "BarChart3",
-          children: []
+children: []
         }
       ];
     } catch (error) {
