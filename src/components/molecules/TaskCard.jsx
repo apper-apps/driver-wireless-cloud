@@ -40,12 +40,12 @@ const TaskCard = ({ task, onEdit, onDelete }) => {
         <div className="flex items-start justify-between">
           <div className="flex-1">
 <h3 className="font-semibold text-slate-800 mb-2">{task.title || task.title_c}</h3>
-            <div className="flex items-center gap-2">
-<Badge variant={getTaskTypeColor(task.taskType || task.task_type_c)}>
-                {task.taskType || task.task_type_c}
+<div className="flex items-center gap-2">
+              <Badge variant={getTaskTypeColor(task.taskType)}>
+                {task.taskType}
               </Badge>
-              <Badge variant={getStatusVariant(task.status || task.status_c)}>
-                {task.status || task.status_c}
+              <Badge variant={getStatusVariant(task.status)}>
+                {task.status}
               </Badge>
             </div>
           </div>
@@ -70,12 +70,12 @@ const TaskCard = ({ task, onEdit, onDelete }) => {
         </div>
       </CardHeader>
       <CardContent className="pt-0">
-<p className="text-slate-600 text-sm mb-4 line-clamp-2">{task.description || task.description_c}</p>
+<p className="text-slate-600 text-sm mb-4 line-clamp-2">{task.description}</p>
         
         <div className="space-y-2">
           <div className="flex items-center text-sm text-slate-600">
             <ApperIcon name="User" className="h-4 w-4 mr-2" />
-<span>{task.assignee || task.assignee_c}</span>
+<span>{task.assignee}</span>
           </div>
           
 <div className={`flex items-center text-sm ${getDueDateColor(task.dueDate)}`}>

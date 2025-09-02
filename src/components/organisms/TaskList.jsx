@@ -120,13 +120,13 @@ await tasksService.update(editingTask.Id, formData);
       ) : (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {tasks.map((task) => (
-            <div key={task.Id} className="relative">
+<div key={task.Id} className="relative">
               <TaskCard
                 task={task}
                 onEdit={handleEditTask}
                 onDelete={handleDeleteTask}
               />
-              {deletingTaskId === task.Id && (
+{deletingTaskId === task.Id && (
                 <div className="absolute inset-0 bg-white/80 backdrop-blur-sm rounded-lg flex items-center justify-center">
                   <ApperIcon name="Loader2" className="h-6 w-6 animate-spin text-slate-600" />
                 </div>
