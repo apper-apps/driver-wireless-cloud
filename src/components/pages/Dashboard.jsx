@@ -47,8 +47,8 @@ const react = tasks.filter(task => task.taskType === "React").length;
   const getUpcomingTasks = () => {
     const today = new Date();
     const upcoming = tasks
-.filter(task => {
-        const dueDate = new Date(task.dueDate);
+      .filter(task => {
+const dueDate = new Date(task.dueDate);
         const diffTime = dueDate - today;
         const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
         return diffDays >= 0 && diffDays <= 7 && task.status !== "Done";
@@ -60,7 +60,7 @@ const react = tasks.filter(task => task.taskType === "React").length;
   };
 
   const getRecentActivity = () => {
-return tasks
+    return tasks
       .sort((a, b) => new Date(b.updatedAt) - new Date(a.updatedAt))
       .slice(0, 5);
   };
@@ -213,11 +213,11 @@ return tasks
               <div className="space-y-3">
                 {upcomingTasks.map((task) => (
                   <div
-key={task.Id}
+                    key={task.Id}
                     className="flex items-center justify-between p-3 bg-gradient-to-r from-slate-50 to-slate-100 rounded-lg hover:from-slate-100 hover:to-slate-200 transition-all duration-200"
                   >
                     <div className="flex-1 min-w-0">
-                      <p className="font-medium text-slate-800 truncate">{task.title}</p>
+<p className="font-medium text-slate-800 truncate">{task.title}</p>
                       <div className="flex items-center gap-2 mt-1">
                         <Badge variant={getTaskTypeColor(task.taskType)} className="text-xs">
                           {task.taskType}
@@ -255,11 +255,11 @@ key={task.Id}
               <div className="space-y-3">
                 {recentActivity.map((task) => (
                   <div
-key={task.Id}
+                    key={task.Id}
                     className="flex items-center justify-between p-3 bg-gradient-to-r from-slate-50 to-slate-100 rounded-lg hover:from-slate-100 hover:to-slate-200 transition-all duration-200"
                   >
                     <div className="flex-1 min-w-0">
-                      <p className="font-medium text-slate-800 truncate">{task.title}</p>
+<p className="font-medium text-slate-800 truncate">{task.title}</p>
                       <div className="flex items-center gap-2 mt-1">
                         <Badge variant={getTaskTypeColor(task.taskType)} className="text-xs">
                           {task.taskType}
@@ -269,7 +269,7 @@ key={task.Id}
                         </span>
                       </div>
                     </div>
-                    <Badge variant={getStatusVariant(task.status)} className="ml-2">
+<Badge variant={getStatusVariant(task.status)} className="ml-2">
                       {task.status}
                     </Badge>
                   </div>

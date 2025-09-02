@@ -26,16 +26,15 @@ class TasksService {
           { field: { Name: "Name" } },
           { field: { Name: "title_c" } },
           { field: { Name: "description_c" } },
-{ field: { Name: "task_type_c" } },
+          { field: { Name: "task_type_c" } },
           { field: { Name: "assignee_c" } },
           { field: { Name: "due_date_c" } },
-          { field: { Name: "Tags" } },
           { field: { Name: "status_c" } },
           { field: { Name: "created_at_c" } },
           { field: { Name: "updated_at_c" } }
         ],
-orderBy: [
-          { fieldName: "CreatedOn", sorttype: "ASC" }
+        orderBy: [
+          { fieldName: "Id", sorttype: "DESC" }
         ]
       };
 
@@ -52,12 +51,11 @@ orderBy: [
         title: task.title_c || task.Name,
         description: task.description_c,
         taskType: task.task_type_c,
-assignee: task.assignee_c,
-dueDate: task.due_date_c,
+        assignee: task.assignee_c,
+        dueDate: task.due_date_c,
         status: task.status_c,
         createdAt: task.created_at_c,
-        updatedAt: task.updated_at_c,
-        tags: task.Tags
+        updatedAt: task.updated_at_c
       })) || [];
     } catch (error) {
       console.error("Error fetching tasks:", error);
@@ -77,12 +75,11 @@ dueDate: task.due_date_c,
           { field: { Name: "title_c" } },
           { field: { Name: "description_c" } },
           { field: { Name: "task_type_c" } },
-{ field: { Name: "assignee_c" } },
+          { field: { Name: "assignee_c" } },
           { field: { Name: "due_date_c" } },
           { field: { Name: "status_c" } },
           { field: { Name: "created_at_c" } },
-          { field: { Name: "updated_at_c" } },
-          { field: { Name: "Tags" } }
+          { field: { Name: "updated_at_c" } }
         ]
       };
 
@@ -99,11 +96,10 @@ dueDate: task.due_date_c,
         description: task.description_c,
         taskType: task.task_type_c,
         assignee: task.assignee_c,
-dueDate: task.due_date_c,
+        dueDate: task.due_date_c,
         status: task.status_c,
         createdAt: task.created_at_c,
-        updatedAt: task.updated_at_c,
-        tags: task.Tags
+        updatedAt: task.updated_at_c
       };
     } catch (error) {
       console.error(`Error fetching task with ID ${id}:`, error);
@@ -123,13 +119,12 @@ dueDate: task.due_date_c,
           Name: taskData.title,
           title_c: taskData.title,
           description_c: taskData.description,
-task_type_c: taskData.taskType,
+          task_type_c: taskData.taskType,
           assignee_c: taskData.assignee,
-due_date_c: taskData.dueDate,
+          due_date_c: taskData.dueDate,
           status_c: taskData.status,
           created_at_c: new Date().toISOString(),
-          updated_at_c: new Date().toISOString(),
-          Tags: taskData.tags || ""
+          updated_at_c: new Date().toISOString()
         }]
       };
 
@@ -156,11 +151,10 @@ due_date_c: taskData.dueDate,
             description: createdTask.description_c,
             taskType: createdTask.task_type_c,
             assignee: createdTask.assignee_c,
-dueDate: createdTask.due_date_c,
+            dueDate: createdTask.due_date_c,
             status: createdTask.status_c,
             createdAt: createdTask.created_at_c,
-            updatedAt: createdTask.updated_at_c,
-            tags: createdTask.Tags
+            updatedAt: createdTask.updated_at_c
           };
         }
       }
@@ -184,12 +178,11 @@ dueDate: createdTask.due_date_c,
           Name: taskData.title,
           title_c: taskData.title,
           description_c: taskData.description,
-task_type_c: taskData.taskType,
+          task_type_c: taskData.taskType,
           assignee_c: taskData.assignee,
-due_date_c: taskData.dueDate,
+          due_date_c: taskData.dueDate,
           status_c: taskData.status,
-          updated_at_c: new Date().toISOString(),
-          Tags: taskData.tags || ""
+          updated_at_c: new Date().toISOString()
         }]
       };
 
@@ -216,11 +209,10 @@ due_date_c: taskData.dueDate,
             description: updatedTask.description_c,
             taskType: updatedTask.task_type_c,
             assignee: updatedTask.assignee_c,
-dueDate: updatedTask.due_date_c,
+            dueDate: updatedTask.due_date_c,
             status: updatedTask.status_c,
             createdAt: updatedTask.created_at_c,
-            updatedAt: updatedTask.updated_at_c,
-            tags: updatedTask.Tags
+            updatedAt: updatedTask.updated_at_c
           };
         }
       }
@@ -278,11 +270,10 @@ dueDate: updatedTask.due_date_c,
           { field: { Name: "description_c" } },
           { field: { Name: "task_type_c" } },
           { field: { Name: "assignee_c" } },
-{ field: { Name: "due_date_c" } },
+          { field: { Name: "due_date_c" } },
           { field: { Name: "status_c" } },
           { field: { Name: "created_at_c" } },
-          { field: { Name: "updated_at_c" } },
-          { field: { Name: "Tags" } }
+          { field: { Name: "updated_at_c" } }
         ],
         where: [
           {
@@ -304,13 +295,12 @@ dueDate: updatedTask.due_date_c,
         Id: task.Id,
         title: task.title_c || task.Name,
         description: task.description_c,
-taskType: task.task_type_c,
+        taskType: task.task_type_c,
         assignee: task.assignee_c,
-dueDate: task.due_date_c,
+        dueDate: task.due_date_c,
         status: task.status_c,
         createdAt: task.created_at_c,
-        updatedAt: task.updated_at_c,
-        tags: task.Tags
+        updatedAt: task.updated_at_c
       })) || [];
     } catch (error) {
       console.error("Error fetching tasks by type:", error);
@@ -333,9 +323,8 @@ dueDate: task.due_date_c,
           { field: { Name: "assignee_c" } },
           { field: { Name: "due_date_c" } },
           { field: { Name: "status_c" } },
-{ field: { Name: "created_at_c" } },
-          { field: { Name: "updated_at_c" } },
-          { field: { Name: "Tags" } }
+          { field: { Name: "created_at_c" } },
+          { field: { Name: "updated_at_c" } }
         ],
         where: [
           {
@@ -358,12 +347,11 @@ dueDate: task.due_date_c,
         title: task.title_c || task.Name,
         description: task.description_c,
         taskType: task.task_type_c,
-assignee: task.assignee_c,
+        assignee: task.assignee_c,
         dueDate: task.due_date_c,
-status: task.status_c,
+        status: task.status_c,
         createdAt: task.created_at_c,
-        updatedAt: task.updated_at_c,
-        tags: task.Tags
+        updatedAt: task.updated_at_c
       })) || [];
     } catch (error) {
       console.error("Error fetching tasks by status:", error);

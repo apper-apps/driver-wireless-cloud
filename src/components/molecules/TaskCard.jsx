@@ -40,11 +40,11 @@ const TaskCard = ({ task, onEdit, onDelete }) => {
         <div className="flex items-start justify-between">
           <div className="flex-1">
 <h3 className="font-semibold text-slate-800 mb-2">{task.title}</h3>
-<div className="flex items-center gap-2">
+            <div className="flex items-center gap-2">
 <Badge variant={getTaskTypeColor(task.taskType)}>
                 {task.taskType}
               </Badge>
-<Badge variant={getStatusVariant(task.status)}>
+              <Badge variant={getStatusVariant(task.status)}>
                 {task.status}
               </Badge>
             </div>
@@ -78,8 +78,8 @@ const TaskCard = ({ task, onEdit, onDelete }) => {
 <span>{task.assignee}</span>
           </div>
           
-<div className={`flex items-center text-sm ${getDueDateColor(task.dueDate)}`}>
-            <ApperIcon name="Calendar" className="h-4 w-4 mr-2" />
+          <div className={`flex items-center text-sm ${getDueDateColor(task.dueDate)}`}>
+<ApperIcon name="Calendar" className="h-4 w-4 mr-2" />
             <span>Due {format(new Date(task.dueDate), "MMM dd, yyyy")}</span>
           </div>
         </div>

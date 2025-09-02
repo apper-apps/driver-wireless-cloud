@@ -9,7 +9,7 @@ import ApperIcon from "@/components/ApperIcon";
 import { cn } from "@/utils/cn";
 
 const TaskModal = ({ isOpen, onClose, task, onSave }) => {
-  const [formData, setFormData] = useState({
+const [formData, setFormData] = useState({
     title: "",
     description: "",
     taskType: "React",
@@ -20,10 +20,10 @@ const TaskModal = ({ isOpen, onClose, task, onSave }) => {
   const [errors, setErrors] = useState({});
   const [isSaving, setIsSaving] = useState(false);
 
-useEffect(() => {
+  useEffect(() => {
     if (task) {
       setFormData({
-        title: task.title || "",
+title: task.title || "",
         description: task.description || "",
         taskType: task.taskType || "React",
         assignee: task.assignee || "",
@@ -92,7 +92,7 @@ useEffect(() => {
 
     setIsSaving(true);
     try {
-await onSave(formData);
+      await onSave(formData);
       toast.success(task ? "Task updated successfully!" : "Task created successfully!");
       onClose();
     } catch (error) {
