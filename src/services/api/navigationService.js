@@ -111,8 +111,8 @@ async getAll() {
               children: []
             }
           ]
-        },
-{
+},
+        {
           Id: 4,
           label: "Reports",
           path: "/reports",
