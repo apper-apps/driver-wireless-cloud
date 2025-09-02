@@ -117,10 +117,10 @@ async getAll() {
           label: "Reports",
           path: "/reports",
           icon: "BarChart3",
-          children: []
+children: []
         }
       ];
-} catch (error) {
+    } catch (error) {
       console.error("Error fetching navigation:", error);
       return [];
     }
