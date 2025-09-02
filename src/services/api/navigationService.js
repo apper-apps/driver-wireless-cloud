@@ -107,11 +107,10 @@ async getAll() {
               Id: 37,
               label: "Ideas",
               path: "/ideas",
-              icon: "Lightbulb",
-              children: []
+children: []
             }
           ]
-},
+        },
         {
           Id: 4,
           label: "Reports",
