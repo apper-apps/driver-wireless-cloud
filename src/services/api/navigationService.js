@@ -115,12 +115,12 @@ async getAll() {
         {
           Id: 4,
           label: "Reports",
-          path: "/reports",
+path: "/reports",
           icon: "BarChart3",
           children: []
         }
       ];
-    } catch (error) {
+} catch (error) {
       console.error("Error fetching navigation:", error);
       return [];
     }
