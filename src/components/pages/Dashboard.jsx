@@ -47,8 +47,8 @@ const react = tasks.filter(task => task.taskType === "React").length;
   const getUpcomingTasks = () => {
     const today = new Date();
     const upcoming = tasks
-      .filter(task => {
-const dueDate = new Date(task.dueDate);
+.filter(task => {
+        const dueDate = new Date(task.dueDate);
         const diffTime = dueDate - today;
         const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
         return diffDays >= 0 && diffDays <= 7 && task.status !== "Done";
@@ -60,8 +60,8 @@ const dueDate = new Date(task.dueDate);
   };
 
   const getRecentActivity = () => {
-    return tasks
-.sort((a, b) => new Date(b.updatedAt) - new Date(a.updatedAt))
+return tasks
+      .sort((a, b) => new Date(b.updatedAt) - new Date(a.updatedAt))
       .slice(0, 5);
   };
 
@@ -213,17 +213,17 @@ const dueDate = new Date(task.dueDate);
               <div className="space-y-3">
                 {upcomingTasks.map((task) => (
                   <div
-                    key={task.Id}
+key={task.Id}
                     className="flex items-center justify-between p-3 bg-gradient-to-r from-slate-50 to-slate-100 rounded-lg hover:from-slate-100 hover:to-slate-200 transition-all duration-200"
                   >
                     <div className="flex-1 min-w-0">
-<p className="font-medium text-slate-800 truncate">{task.title}</p>
+                      <p className="font-medium text-slate-800 truncate">{task.title}</p>
                       <div className="flex items-center gap-2 mt-1">
-<Badge variant={getTaskTypeColor(task.taskType)} className="text-xs">
+                        <Badge variant={getTaskTypeColor(task.taskType)} className="text-xs">
                           {task.taskType}
                         </Badge>
                         <span className="text-xs text-slate-500">
-Due {format(new Date(task.dueDate), "MMM dd")}
+                          Due {format(new Date(task.dueDate), "MMM dd")}
                         </span>
                       </div>
                     </div>
@@ -255,21 +255,21 @@ Due {format(new Date(task.dueDate), "MMM dd")}
               <div className="space-y-3">
                 {recentActivity.map((task) => (
                   <div
-                    key={task.Id}
+key={task.Id}
                     className="flex items-center justify-between p-3 bg-gradient-to-r from-slate-50 to-slate-100 rounded-lg hover:from-slate-100 hover:to-slate-200 transition-all duration-200"
                   >
                     <div className="flex-1 min-w-0">
-<p className="font-medium text-slate-800 truncate">{task.title}</p>
+                      <p className="font-medium text-slate-800 truncate">{task.title}</p>
                       <div className="flex items-center gap-2 mt-1">
-<Badge variant={getTaskTypeColor(task.taskType)} className="text-xs">
+                        <Badge variant={getTaskTypeColor(task.taskType)} className="text-xs">
                           {task.taskType}
                         </Badge>
-<span className="text-xs text-slate-500">
+                        <span className="text-xs text-slate-500">
                           Updated {format(new Date(task.updatedAt), "MMM dd, h:mm a")}
                         </span>
                       </div>
                     </div>
-<Badge variant={getStatusVariant(task.status)} className="ml-2">
+                    <Badge variant={getStatusVariant(task.status)} className="ml-2">
                       {task.status}
                     </Badge>
                   </div>

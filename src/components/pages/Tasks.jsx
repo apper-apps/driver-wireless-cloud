@@ -51,8 +51,8 @@ const tasksData = await tasksService.getAll();
     let filtered = [...tasks];
 
     // Apply type filter
-    if (activeFilter !== "all") {
-filtered = filtered.filter(task => task.taskType === activeFilter);
+if (activeFilter !== "all") {
+      filtered = filtered.filter(task => task.taskType === activeFilter);
     }
 
     // Apply search filter
