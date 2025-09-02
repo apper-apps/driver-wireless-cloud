@@ -78,8 +78,8 @@ const TaskCard = ({ task, onEdit, onDelete }) => {
 <span>{task.assignee || task.assignee_c}</span>
           </div>
           
-          <div className={`flex items-center text-sm ${getDueDateColor(task.dueDate)}`}>
-<ApperIcon name="Calendar" className="h-4 w-4 mr-2" />
+<div className={`flex items-center text-sm ${getDueDateColor(task.dueDate)}`}>
+            <ApperIcon name="Calendar" className="h-4 w-4 mr-2" />
             <span>Due {format(new Date(task.dueDate), "MMM dd, yyyy")}</span>
           </div>
         </div>
